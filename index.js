@@ -12,14 +12,13 @@ function nextBigger(n){
   }
   let possibleNumbers = permute(digits).map(elem => elem.map(elem => elem.toString()).reduce((acc, curr) => acc + curr)).map(el => Number(el));
   let sorted = getUnique(possibleNumbers.sort((a, b) => a - b));
+  console.log(sorted)
   if (sorted[sorted.length - 1] === n) {
     return -1
   }
   for (let i = 0; i < sorted.length; i += 1) {
     if (sorted[i] === n) {
-      if (sorted[i + 1] !== n) {
-        return sorted[i + 1]
-      }
+      return sorted[i + 1]
     }
   }
 }
@@ -58,3 +57,4 @@ function getUnique(arr) {
   }
   return res
 }
+
